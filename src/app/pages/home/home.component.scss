@@ -1,0 +1,28 @@
+:host {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	margin: 1.5rem auto;
+	width: 70vw;
+
+	.logo {
+		max-width: 200px;
+	}
+
+	img {
+		max-width: 400px;
+		@media (max-width: 640px) {
+			max-width: 250px;
+		}
+	}
+
+	h2 {
+		margin: 1rem 0;
+	}
+
+	p {
+		margin: 1rem 0;
+	}
+}

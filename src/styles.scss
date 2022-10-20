@@ -1,0 +1,158 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "variables.scss";
+
+* {
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	color: $color-grey;
+	overflow-y: overlay;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: $color-white;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $color-ming;
+	}
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.bg-ming {
+	background-color: $color-ming;
+}
+
+.bg-sweet {
+	background-color: $color-sweet;
+}
+
+.bg-light {
+	background-color: $color-light;
+}
+
+.bg-oxford {
+	background-color: $color-oxford;
+}
+
+.text-ming {
+	color: $color-ming;
+}
+
+.text-sweet {
+	color: $color-sweet;
+}
+
+.text-light {
+	color: $color-light;
+}
+
+.text-oxford {
+	color: $color-oxford;
+}
+
+.text-grey {
+	color: $color-grey;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+
+	.input-checkbox {
+		width: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		padding-top: 0.5rem;
+
+		label {
+			margin-left: 0.5rem;
+		}
+
+	}
+
+	.input-group {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding-top: 0.5rem;
+
+		textarea {
+			border: 2px solid $color-ming;
+			width: 100%;
+			padding: 0.5rem 0.75rem;
+
+			&:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+		}
+
+		input {
+			border: 2px solid $color-ming;
+			width: 100%;
+			padding: 0.5rem 0.75rem;
+
+			&:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+
+			&::-webkit-search-cancel-button {
+				-webkit-appearance: none;
+				position: relative;
+				height: 20px;
+				width: 20px;
+				background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+			}
+		}
+
+		&:hover {
+			.tooltiptext {
+				visibility: visible;
+			}
+		}
+
+		.tooltiptext {
+			visibility: hidden;
+			font-size: 10px;
+			width: 150px;
+			background-color: $color-ming;
+			color: #fff;
+			text-align: center;
+			padding: 5px 0;
+			border-radius: 6px;
+			top: 220px;
+
+			/* Position the tooltip text - see examples below! */
+			position: absolute;
+			z-index: 1;
+		}
+	}
+}
+
+button {
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	color: $color-white;
+	background-color: $color-ming;
+
+	&:hover {
+		background-color: $color-sweet;
+	}
+}

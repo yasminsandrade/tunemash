@@ -1,0 +1,17 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding-top: 1rem;
+	width: 70vw;
+
+	iframe {
+		margin-top: 1rem;
+	}
+
+	button {
+		margin-top: 1rem;
+	}
+}

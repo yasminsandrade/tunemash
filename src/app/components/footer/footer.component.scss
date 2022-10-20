@@ -1,0 +1,19 @@
+@import "variables.scss";
+
+section {
+	margin-top: 2rem;
+	padding: 0.5rem 2rem;
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	p {
+		text-align: center;
+		color: $color-white;
+		font-size: 10pt;
+
+		a {
+			color: $color-oxford;
+			font-size: 10pt;
+		}
+	}
+}

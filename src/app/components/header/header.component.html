@@ -1,0 +1,61 @@
+<nav class="bg-ming">
+	<div class="navbar sm:px-6 lg:px-8">
+		<section>
+			<div class="mobile-menu">
+			<!-- Mobile menu button-->
+				<button type="button" class="mobile-menu-button" (click)="showMobileMenu = true" *ngIf="!showMobileMenu">
+					<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+					</svg>
+				</button>
+				<button type="button" class="mobile-menu-button" (click)="showMobileMenu = false" *ngIf="showMobileMenu">
+					<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<div class="nav-items">
+				<div class="flex flex-shrink-0 items-center" routerLink="/home">
+					<img class="hidden h-8 w-auto sm:block" src="../../../assets/logo/logo-icon-white.svg">
+					<img class="block h-8 w-auto sm:hidden" src="../../../assets/logo/logo-horizontal-white.svg">
+				</div>
+				<div class="hidden sm:ml-6 sm:block">
+					<div class="flex space-x-1">
+					<a routerLinkActive="actual" class="default" routerLink="/home">Início</a>
+					<a routerLinkActive="actual" class="default" routerLink="/como-funciona">Como funciona</a>
+					<a routerLinkActive="actual" class="default" routerLink="/contato">Contato</a>
+					</div>
+				</div>
+			</div>
+			<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+			<!-- Profile dropdown -->
+				<div class="relative ml-3">
+					<div class="avatar-placer" *ngIf="token" (click)="toRoute()">
+						<div class="avatar" *ngIf="!avatarUrl || avatarUrl == ''">
+							<svg class="sc-659e94ee-6 dJASSi" id="icon-user" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024">
+								<path d="m730.06 679.64q-45.377 53.444-101.84 83.443t-120 29.999q-64.032 0-120.75-30.503t-102.6-84.451q-40.335 13.109-77.645 29.747t-53.948 26.722l-17.142 10.084q-29.747 19.159-51.175 57.729t-21.428 73.107 25.461 59.242 60.754 24.705h716.95q35.293 0 60.754-24.705t25.461-59.242-21.428-72.603-51.679-57.225q-6.554-4.033-18.907-10.84t-51.427-24.453-79.409-30.755zm-221.84 25.72q-34.285 0-67.561-14.873t-60.754-40.335-51.175-60.502-40.083-75.124-25.461-84.451-9.075-87.728q0-64.032 19.915-116.22t54.452-85.964 80.67-51.931 99.072-18.151 99.072 18.151 80.67 51.931 54.452 85.964 19.915 116.22q0 65.04-20.167 130.58t-53.948 116.72-81.426 83.443-98.568 32.268z" />
+							</svg>
+						</div>
+						<div *ngIf="avatarUrl && avatarUrl != ''">
+							<img [src]="avatarUrl">
+						</div>
+					</div>
+					<div *ngIf="!token" class="hidden sm:block">
+						<button class="sign-in" routerLink="/login">Entrar</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- Menu if mobile -->
+	<div class="sm:hidden" id="mobile-menu" *ngIf="showMobileMenu">
+		<div class="space-y-1 mobile-navbar">
+			<a routerLinkActive="actual" class="default" routerLink="/home">Início</a>
+			<a routerLinkActive="actual" class="default" routerLink="/como-funciona">Como funciona</a>
+			<a routerLinkActive="actual" class="default" routerLink="/contato">Contato</a>
+			<a routerLinkActive="actual" class="default" routerLink="/login">Entrar</a>
+		</div>
+	</div>
+</nav>
+

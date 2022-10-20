@@ -1,0 +1,36 @@
+@import "variables.scss";
+
+:host {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	width: 70vw;
+	margin: 2rem auto;
+
+	p {
+		padding-top: 2rem;
+	}
+
+	h2 {
+		margin-bottom: 1rem;
+	}
+
+	img {
+		width: 40%;
+		max-width: 400px;
+	}
+
+	button {
+		padding: 0.75rem 1.5rem;
+		margin: 2rem;
+		border-radius: 0.5rem;
+		color: $color-white;
+		background-color: $color-ming;
+
+		&:hover {
+			background-color: $color-sweet;
+		}
+	}
+}

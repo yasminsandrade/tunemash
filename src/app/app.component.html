@@ -1,0 +1,9 @@
+<loader></loader>
+<section class="all">
+	<app-header [avatarUrl]="avatarUrl" [token]="token"></app-header>
+	<div class="body">
+		<router-outlet (activate)="changeOfRoutes()"></router-outlet>
+	</div>
+	<app-footer></app-footer>
+</section>
+

@@ -1,0 +1,40 @@
+<ngx-loading [show]="isLoading" class="over"></ngx-loading>
+<h2 class="title">Entre em contato</h2>
+<p>Ficou com alguma dúvida? Tem alguma sugestão? O aplicativo não funcionou como esperava? Fale com a gente!</p>
+<form [formGroup]="form">
+	<div class="input-group">
+		<div class="label">
+			<label for="name">Nome</label>
+			<span class="alert" *ngIf="showAlert('name')">Preencha um nome válido</span>
+		</div>
+		<input type="text" id="name" placeholder="Fernanda Alves" formControlName="name">
+	</div>
+	<div class="input-group">
+		<div class="label">
+			<label for="email">Email</label>
+			<span class="alert" *ngIf="showAlert('email')">Preencha um email válido</span>
+		</div>
+		<input type="text" id="email" placeholder="exemplo@email.com" formControlName="email">
+	</div>
+	<div class="input-group">
+		<div class="label">
+			<label for="phone">Celular</label>
+			<span class="alert" *ngIf="showAlert('phone')">Preencha um celular válido</span>
+		</div>
+		<input type="text" id="phone" formControlName="phone" placeholder="(11) 99999-9999" maxlength="15" (keyup)="validateNumbers('phone')">
+	</div>
+	<div class="input-group">
+		<div class="label">
+			<label for="message">Mensagem</label>
+			<span class="alert" *ngIf="showAlert('message')">Obrigatório</span>
+		</div>
+		<textarea type="text" rows="4" placeholder="Olá!" id="message" formControlName="message"></textarea>
+	</div>
+	<input type="hidden" name="_honeypot" value="">
+	<input type="hidden" name="_confirmation" value="Obrigado por entrar em contato conosco! Em breve te responderemos.">
+	<button type="submit" (click)="onSubmit()">Enviar mensagem</button>
+</form>
+
+<div class="response-message" *ngIf="showMessage">
+	<span>Desculpe, algo deu errado, tente novamente.</span>
+</div>

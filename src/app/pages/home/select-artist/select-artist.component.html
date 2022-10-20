@@ -1,0 +1,67 @@
+
+
+<ngx-loading [show]="isLoading"></ngx-loading>
+<!-- Formulário de pesquisa -->
+<form [formGroup]="form">
+	<div class="input-group">
+		<label for="playlistName">Dê um nome à sua playlist</label>
+		<input type="text" id="playlistName" [placeholder]="'Playlist da ' + userName" formControlName="playlistName">
+	</div>
+	<div class="input-group">
+		<label for="artist">Selecione o artista</label>
+		<input type="search" id="artist" placeholder="Digite o nome do artista" (keyup)="searchArtist($event)" (keydown.enter)="searchArtist($event)" (keydown.esc)="clear()" formControlName="artist">
+		<span *ngIf="isLimit" class="tooltiptext">Limite de artistas atingido.</span>
+	</div>
+	<div class="input-checkbox">
+		<input type="checkbox" id="isPublic" formControlName="isPublic" checked="checked">
+		<label for="isPublic">Playlist pública</label>
+	</div>
+</form>
+
+<div class="alert" *ngIf="showAlert">
+	<p>Esse artista já foi selecionado.</p>
+</div>
+
+<!-- Resultados da pesquisa de artistas -->
+<section class="results" *ngIf="!!artists && artists.length > 0 && this.form.controls['artist'].value">
+	<div class="artist" *ngFor="let artist of artists" (click)="selectArtist(artist)">
+		<div class="photo" *ngIf="artist.photoUrl">
+			<img [src]="artist.photoUrl" />
+		</div>
+		<div class="no-photo" *ngIf="!artist.photoUrl">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="svg">
+				<path d="M12 9a3.75 3.75 0 100 7.5A3.75 3.75 0 0012 9z" />
+				<path fill-rule="evenodd" d="M9.344 3.071a49.52 49.52 0 015.312 0c.967.052 1.83.585 2.332 1.39l.821 1.317c.24.383.645.643 1.11.71.386.054.77.113 1.152.177 1.432.239 2.429 1.493 2.429 2.909V18a3 3 0 01-3 3h-15a3 3 0 01-3-3V9.574c0-1.416.997-2.67 2.429-2.909.382-.064.766-.123 1.151-.178a1.56 1.56 0 001.11-.71l.822-1.315a2.942 2.942 0 012.332-1.39zM6.75 12.75a5.25 5.25 0 1110.5 0 5.25 5.25 0 01-10.5 0zm12-1.5a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+			</svg>
+		</div>
+		<h3 class="name">{{ artist.name }}</h3>
+	</div>
+</section>
+<section class="results" *ngIf="!!artists && artists.length == 0">
+	<div class="artist">Não obtivemos nenhum resultado</div>
+</section>
+
+<!-- Artistas selecionados -->
+<section *ngIf="!!selectedArtists && selectedArtists.length > 0">
+	<h3 class="title">Artistas selecionados</h3>
+	<div class="selected-artists">
+		<div class="card" *ngFor="let artist of selectedArtists">
+			<div class="end">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="close" (click)="removeArtist(artist.id)">
+					<path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+				</svg>
+			</div>
+			<div class="center">
+				<div class="photo">
+					<img [src]="artist.photoUrl" alt="" />
+				</div>
+				<div class="name">
+					<h5>{{ artist.name }}</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex-center">
+		<button class="create" (click)="sendData()">Criar playlist</button>
+	</div>
+</section>

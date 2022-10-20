@@ -1,0 +1,13 @@
+.all {
+	position: relative;
+	min-height: 100vh;
+}
+
+.body {
+	margin-top: 64px;
+	padding-bottom: 60px;
+
+	@media (max-width: 640px) {
+		padding-bottom: 120px;
+	}
+}

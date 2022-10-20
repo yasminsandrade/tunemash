@@ -1,0 +1,20 @@
+<section class="profile" *ngIf="user">
+	<div class="card">
+		<div class="image">
+			<img [src]="user.avatarUrl" alt="">
+		</div>
+		<div class="side">
+			<div class="title">
+				<h2>{{ user.name }}</h2>
+			</div>
+			<div class="content">
+				<p>{{ user.id }}</p>
+				<p>{{ user.followers }} seguidores</p>
+				<a [href]="user.spotifyUrl">Acessar perfil no Spotify</a>
+			</div>
+			<div class="logout">
+				<button (click)="logout()">Sair</button>
+			</div>
+		</div>
+	</div>
+</section>

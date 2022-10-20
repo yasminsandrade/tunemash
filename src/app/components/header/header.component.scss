@@ -1,0 +1,92 @@
+@import "variables.scss";
+
+:host {
+	position: fixed;
+	width: 100vw;
+	z-index: 2;
+}
+
+.navbar {
+	max-width: 90vw;
+	margin-left: auto;
+    margin-right: auto;
+
+	section {
+		@apply relative flex h-16 items-center justify-between;
+
+		.mobile-menu {
+			@apply absolute inset-y-0 left-0 flex items-center sm:hidden;
+
+			.mobile-menu-button {
+				@apply inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white;
+			}
+		}
+
+		.nav-items {
+			@apply flex flex-1 items-center justify-center sm:items-stretch sm:justify-start;
+
+			.default {
+				color: $color-light;
+				@apply px-3 py-2 rounded-md text-sm font-medium;
+				&:hover {
+					background-color: $color-sweet;
+					color: $color-white;
+				}
+			}
+
+			.actual {
+				background-color: $color-sweet;
+				color: $color-white;
+				@apply px-3 py-2 rounded-md text-sm font-medium;
+			}
+		}
+	}
+}
+
+.mobile-navbar {
+	padding: 0.5rem 0.5rem 0.75rem;
+
+	.default {
+		display: block;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.375rem;
+		text-decoration: none;
+		color: $color-light;
+	}
+	.actual {
+		background-color: $color-sweet;
+		color: $color-white;
+	}
+}
+
+.avatar-placer {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $color-oxford;
+    overflow: hidden;
+
+	.avatar {
+		border-radius: 50%;
+		width: 100%;
+		height: 100%;
+		fill: #ffffff;
+		position: relative;
+		top: 4px;
+	}
+}
+
+.sign-in {
+	color: $color-white;
+	background-color: $color-oxford;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+	&:hover {
+		background-color: $color-sweet;
+		color: $color-white;
+	}
+}

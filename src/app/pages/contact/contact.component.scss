@@ -1,0 +1,68 @@
+@import 'variables.scss';
+
+:host {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding-top: 1rem;
+	width: 70vw;
+
+	p {
+		@media (min-width: 640px) {
+			width: 85%;
+			max-width: 700px;
+		}
+
+		@media (max-width: 640px) {
+			width: 100%;
+		}
+		text-align: center;
+		padding: 0 1rem;
+	}
+
+	form {
+		@media (min-width: 640px) {
+			width: 75%;
+			max-width: 700px;
+		}
+
+		@media (max-width: 640px) {
+			width: 100%;
+		}
+
+		button {
+			margin-top: 1rem;
+		}
+
+		.label {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			span {
+				font-size: 8pt;
+				color: red;
+				padding-left: 0.25rem;
+			}
+		}
+	}
+
+	.response-message {
+		z-index: 50;
+		left: 2vw;
+		top: 15vh;
+		position: fixed;
+		color: $color-white;
+		overflow: auto;
+		padding: 0.5rem 2rem;
+		display: block;
+		background-color: $color-white;
+		border: 3px solid $color-sweet;
+		border-left-width: 10px;
+		text-align: center;
+		box-shadow: rgba(0, 0, 0, 0.30) 2px 2px 2.6px;
+	}
+}
